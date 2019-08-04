@@ -11,6 +11,13 @@
 	animation-duration: .3s;
 }
 
+.whiteText-background{
+	
+	background-color:rgba(0,0,0, .4);
+	border-radius:3px;
+	padding: .5rem;
+}
+
 @keyframes fadeInOpacity {
 	0% {
 		opacity: 0;

@@ -15,12 +15,9 @@ export class HomeComponent implements OnInit {
   constructor(public _peliculasService: PeliculasService) { }
 
   ngOnInit() {
-    this._peliculasService.getReleases().subscribe( res => {
-      setTimeout( ()=>this.releases=res, 2000) } )
-    this._peliculasService.getPopulars().subscribe( res => {
-      setTimeout( ()=> this.populars=res, 4000) } )
-    this._peliculasService.getKidsPopulars().subscribe( res => {
-      setTimeout(()=>this.kidsPopulars=res, 6000)} )
+    this._peliculasService.getReleases().subscribe( res => this.releases=res )
+    this._peliculasService.getPopulars().subscribe( res => this.populars=res )
+    this._peliculasService.getKidsPopulars().subscribe( res =>  this.kidsPopulars=res )
 
 
   }
