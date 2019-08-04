@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+  <div class="col-sm-12 col-md-8">
+    <div class="form-group row">
+      <label for="" class="col-sm-2 col-form-label text-center">Buscar:</label>
+      <input [(ngModel)]="terminoBusqueda"
+            name="busqueda"
+            (keyup)="buscar()"
+            type="text"
+            class="form-control col-sm-10">
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-around">
+  
+  <div class="card m-4" *ngFor="let resultado of _peliculasService.resultadosBusqueda" style="max-width: 18rem;">
+    <img [src]="(resultado | pelisImg)" class="card-img-top" [alt]="resultado.title">
+    <div class="card-body">
+      <h5 class="card-title">{{resultado.title}}</h5>
+      <p class="card-text">{{resultado.overview | slice:0:250}}...</p>
+      <p class="card-text"><small class="text-muted">{{resultado.release_date}}</small></p>
+    </div>
+    <a class="btn btn-primary m-3" [routerLink]="['/detalle', resultado.id]"> Ver mas </a>
+
+  </div>
+</div>
+
+<div class="row justify-content-center" *ngIf="loading">
+  <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>

@@ -1,3 +1,4 @@
+import { PeliculasService } from './services/peliculas.service';
 import { Component } from '@angular/core';
 
 @Component({

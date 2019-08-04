@@ -1,0 +1,22 @@
+  <a class="btn btn-outline-danger" (click)="goBack()">Volver</a>
+
+<div class="row justify-content-center fade-in " *ngIf="pelicula">
+
+  <div class="card mb-3" style="max-width: 780px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img [src]="'http://image.tmdb.org/t/p/w500/'+pelicula.poster_path " class="card-img" [alt]="pelicula.title">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{pelicula.title}}</h5>
+          <hr>
+
+          <p class="card-text">{{pelicula.overview | slice:0:250}}...</p>
+          <p> Votos <span class="badge badge-primary">{{pelicula.vote_average}}</span></p>
+          <p class="card-text"><small class="text-muted">{{pelicula.release_date}}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
