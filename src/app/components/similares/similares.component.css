@@ -1,0 +1,43 @@
+.overflow-h{
+    width: 100%;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    padding: 5px;
+
+}
+.similares-carousel{
+    width: 200%;
+    display: flex;
+    transition: all 5s;
+    
+    /*animation: animacion 2s .2s infinite linear forwards normal;*/
+
+}
+
+.move:first-child{
+animation: animacion 2s linear infinite forwards;
+
+}
+
+
+.paused .move:first-child{
+    animation-play-state: paused;
+
+}
+
+.similares-carousel-img{
+    flex: 1 0 calc(100% / 10);
+    transition: all 5s;
+    cursor: pointer;
+}
+
+@keyframes animacion{
+    to{
+        margin-left: -10%;
+    }
+}
+
+.similares-carousel-img img{
+    width: 100%;
+}

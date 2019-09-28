@@ -11,13 +11,16 @@ export class HomeComponent implements OnInit {
   populars;
   kidsPopulars;
 
-  loading = (!this.releases || !this.kidsPopulars || !this.populars) ? true : false;
   constructor(public _peliculasService: PeliculasService) { }
 
   ngOnInit() {
-    this._peliculasService.getReleases().subscribe( res => this.releases=res )
-    this._peliculasService.getPopulars().subscribe( res => this.populars=res )
-    this._peliculasService.getKidsPopulars().subscribe( res =>  this.kidsPopulars=res )
+    this._peliculasService.getReleases().subscribe( res => {
+      console.log(res);this.releases=res} )
+    this._peliculasService.getPopulars().subscribe( res => {
+      console.log(res);this.populars=res} )
+    this._peliculasService.getKidsPopulars().subscribe( res =>  {
+      console.log(res);
+      this.kidsPopulars=res} )
 
 
   }

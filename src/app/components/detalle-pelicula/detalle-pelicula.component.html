@@ -13,10 +13,15 @@
           <hr>
 
           <p class="card-text">{{pelicula.overview | slice:0:250}}...</p>
-          <p> Votos <span class="badge badge-primary">{{pelicula.vote_average}}</span></p>
-          <p class="card-text"><small class="text-muted">{{pelicula.release_date}}</small></p>
+          <p class="card-text">Duracion: {{pelicula.runtime}} min </p>
+          <p> Puntaje <span class="badge badge-primary">{{pelicula.vote_average}} / 10 </span></p>
+          <p class="card-text"><small class="text-muted">Fecha de estreno: {{pelicula.release_date}}</small></p>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="similares">
+  <app-similares [similares]="similares['results']"></app-similares>
 </div>

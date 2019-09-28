@@ -12,6 +12,7 @@ import { Location } from '@angular/common';
 export class DetallePeliculaComponent implements OnInit {
   peliId;
   pelicula;
+  similares;
 
   goBack() {
     // window.history.back();
@@ -31,11 +32,16 @@ export class DetallePeliculaComponent implements OnInit {
 
   ngOnInit() {
     this._peliculasService.resultadosBusqueda ?
-    this.pelicula = this._peliculasService.resultadosBusqueda.find( element => element.id === Number(this.peliId)):
+    ()=>{
+          this.pelicula = this._peliculasService.resultadosBusqueda.
+          find( element => element.id === Number(this.peliId));
+          this._peliculasService.getSimilar(this.pelicula.genres).subscribe( res => this.similares=res)
+    } :
     this._peliculasService.getMovie(this.peliId).subscribe(res =>{
-      console.log(res)
       this.pelicula=res;
+      this._peliculasService.getSimilar(this.pelicula.genres).subscribe( res => this.similares=res)
     })
+    
   }
 
 }
