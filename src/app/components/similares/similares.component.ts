@@ -16,37 +16,38 @@ import {
 })
 export class SimilaresComponent implements AfterViewInit {
 @Input() similares=[];
-
 activeSlider = false;
 intervalo;
 
 
-toggleAnimation(){
-  let time = new Date();
-  let tiempoIntervalo;
-  let elapseTime;
-  if(!this.activeSlider){
-    this.activeSlider=true;
-    this.intervalo = setInterval(()=>{
-      tiempoIntervalo = new Date()
-      let element = this.similares.shift();
-        this.similares.push(element);
-    }, 2000);
-  }else{
-    elapseTime = time.getMilliseconds()
-    console.log(tiempoIntervalo)
-    console.log("mouseIn")
-    clearInterval(this.intervalo)
-    this.activeSlider=false;
-  }
+
+siguiente(){
+  
+  let element = this.similares.shift();
+  setTimeout(()=>{
+      this.similares.push(element)
+
+  }, 5000)
 }
 
+stop(){
+  console.log("stop")
+  clearInterval(this.intervalo);
+}
+
+play(){
+  console.log("play")
+  this.intervalo=setInterval(()=>{
+    this.siguiente()
+  }, 5100 )
+}
   constructor() { 
   }
   
   ngAfterViewInit() { 
- 
-    this.toggleAnimation();
+    this.intervalo=setInterval(()=>{
+      this.siguiente()
+    }, 5100 )
   }
 
 }

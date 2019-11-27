@@ -1,11 +1,12 @@
 <h2>Similares a tu busqueda</h2>
 
 <br>
-<div class="overflow-h shadow-sm p-1">
-  <div [ngClass]="['similares-carousel', activeSlider ? '' : 'paused']  " >
-  <div class="similares-carousel-img move " *ngFor="let item of similares" (mouseover)="toggleAnimation()" (mouseout)="toggleAnimation()" >
-    <img [src]="'http://image.tmdb.org/t/p/w500/'+item.backdrop_path" class="" />
+
+
+<div class="overflow-h shadow-sm p-1" >
+  <div class="similares-carousel" (mouseover)="stop()" (mouseleave)="play()">
+    <div class="similares-carousel-img " *ngFor="let item of similares; let i = index" [ngStyle]="{'left':(i*150)-(150)+'px'}" >
+      <img [src]="'http://image.tmdb.org/t/p/w500/'+item.backdrop_path" class="" />
+    </div>
   </div>
 </div>
-</div>
-
