@@ -1,11 +1,12 @@
 <h1 class="display-4 mb-4">{{title}}</h1>
+<hr>
 <div class="row mb-5" >
   <div class="col-md-6">
     <div class="row">
         <div [routerLink]="['/detalle', movies.results[0].id]"
               routerLinkActive="router-link-active"
               class="div-pic-1 col-md-12 pointer"
-              [ngStyle]="{'background-image': 'url( '+ (movies.results[0] | pelisImg) +')' }">
+              [ngStyle]="{'background-image': 'url( '+ (movies.results[0] | pelisImg: 'backdrop') +')' }">
               <h4 class="titulo-movie-galeria">
                     {{movies.results[0].title}}
               </h4>
@@ -13,15 +14,15 @@
         <div [routerLink]="['/detalle', movies.results[1].id]"
               routerLinkActive="router-link-active"
               class="div-pic-2 col-md-6 pointer"
-              [ngStyle]="{'background-image': 'url( '+ (movies.results[1] | pelisImg) +')' }">
+              [ngStyle]="{'background-image': 'url( '+ (movies.results[1] | pelisImg: 'backdrop') +')' }">
             <h4 class="titulo-movie-galeria">
                   {{movies.results[1].title}}
             </h4>
         </div>
         <div [routerLink]="['/detalle', movies.results[2].id]"
             routerLinkActive="router-link-active"
-            class="div-pic-2 col-md-6 pointer" 
-            [ngStyle]="{'background-image': 'url( '+ (movies.results[2] | pelisImg) +')' }">
+            class="div-pic-2 col-md-6 pointer"
+            [ngStyle]="{'background-image': 'url( '+ (movies.results[2] | pelisImg: 'backdrop') +')' }">
             <h4 class="titulo-movie-galeria">
                   {{movies.results[2].title}}
             </h4>
@@ -33,7 +34,7 @@
         <div [routerLink]="['/detalle', movies.results[3].id]"
               routerLinkActive="router-link-active"
               class="div-pic-2 col-md-6 pointer"
-              [ngStyle]="{'background-image': 'url( '+ (movies.results[3] | pelisImg) +')' }"
+              [ngStyle]="{'background-image': 'url( '+ (movies.results[3] | pelisImg: 'backdrop') +')' }"
               >
               <h4 class="titulo-movie-galeria">
                   {{movies.results[3].title}}
@@ -42,7 +43,7 @@
         <div [routerLink]="['/detalle', movies.results[4].id]"
               routerLinkActive="router-link-active"
               class="div-pic-2 col-md-6 pointer"
-              [ngStyle]="{'background-image': 'url( '+ (movies.results[4] | pelisImg) +')' }"
+              [ngStyle]="{'background-image': 'url( '+ (movies.results[4] | pelisImg: 'backdrop') +')' }"
               >
               <h4 class="titulo-movie-galeria">
                   {{movies.results[4].title}}
@@ -51,7 +52,7 @@
         <div [routerLink]="['/detalle', movies.results[5].id]"
               routerLinkActive="router-link-active"
               class="div-pic-1 col-md-12 pointer"
-              [ngStyle]="{'background-image': 'url( '+ (movies.results[5] | pelisImg) +')' }"
+              [ngStyle]="{'background-image': 'url( '+ (movies.results[5] | pelisImg: 'backdrop') +')' }"
               >
               <h4 class="titulo-movie-galeria">
                   {{movies.results[5].title}}

@@ -5,7 +5,7 @@
   <div class="card mb-3" style="max-width: 780px;">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <img [src]="pelicula | pelisImg" class="card-img" [alt]="pelicula.title">
+        <img [src]="pelicula | pelisImg:'poster'" class="card-img" [alt]="pelicula.title">
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -13,9 +13,14 @@
           <hr>
 
           <p class="card-text">{{pelicula.overview | slice:0:250}}...</p>
-          <p class="card-text">Duracion: {{pelicula.runtime}} min </p>
-          <p> Puntaje <span class="badge badge-primary">{{pelicula.vote_average}} / 10 </span></p>
-          <p class="card-text"><small class="text-muted">Fecha de estreno: {{pelicula.release_date}}</small></p>
+          <ng-container *ngFor="let tag of pelicula.genres| slice:0:3">
+            <span class="badge badge-primary m-1">{{tag.name}}</span>
+          </ng-container>
+
+
+          <p class="card-text"><strong>Duracion: </strong><span class="badge badge-primary ">{{pelicula.runtime}} min</span></p>
+          <p class="card-text"> <strong>Puntaje: </strong> <span class="badge badge-primary">{{pelicula.vote_average}} / 10 </span></p>
+          <p class="card-text"><small class="text-muted"><strong>Fecha de estreno: </strong>{{pelicula.release_date}}</small></p>
         </div>
       </div>
     </div>
