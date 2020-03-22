@@ -8,7 +8,7 @@
 .similares-carousel{
     width: 150px;
     position: relative;
-    height: 100px;
+    height: 130px;
     transition: all 5s;
 
 
@@ -18,12 +18,13 @@
 .similares-carousel-img{
     position: absolute;
     top:0;
-    width: 150px;
+    height: 100%;
+    width: 100%;
     transition: all 5s;
     cursor: pointer;
 }
 
 .similares-carousel-img img{
-    
+    height: 100%;
     width: 100%;
 }

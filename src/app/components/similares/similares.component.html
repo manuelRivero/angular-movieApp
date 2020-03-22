@@ -4,9 +4,9 @@
 
 
 <div class="overflow-h shadow-sm p-1" >
-  <div class="similares-carousel" (mouseover)="stop()" (mouseleave)="play()">
+  <div class="similares-carousel" (mouseover)="activeSlider=false" (mouseleave)="activeSlider=true">
     <div class="similares-carousel-img " *ngFor="let item of similares; let i = index" [ngStyle]="{'left':(i*150)-(150)+'px'}" >
-      <img [src]="'http://image.tmdb.org/t/p/w500/'+item.backdrop_path" class="" />
+      <img [src]="item| pelisImg" class="" />
     </div>
   </div>
 </div>

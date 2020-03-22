@@ -5,7 +5,7 @@
   <div class="card mb-3" style="max-width: 780px;">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <img [src]="'http://image.tmdb.org/t/p/w500/'+pelicula.poster_path " class="card-img" [alt]="pelicula.title">
+        <img [src]="pelicula | pelisImg" class="card-img" [alt]="pelicula.title">
       </div>
       <div class="col-md-8">
         <div class="card-body">
