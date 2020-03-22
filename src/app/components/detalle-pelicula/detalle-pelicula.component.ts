@@ -27,19 +27,7 @@ export class DetallePeliculaComponent implements OnInit {
     this.activateRoute.params.subscribe(params => {
       this.peliId = params["id"];
 
-
-    this._peliculasService.resultadosBusqueda
-    ? () => {
-        this.pelicula = this._peliculasService.resultadosBusqueda.find(
-          element => element.id === Number(this.peliId)
-        );
-        this._peliculasService
-          .getSimilar(this.pelicula.genres)
-          .subscribe(res => {
-            this.similares = res;
-          });
-      }
-    : this._peliculasService.getMovie(this.peliId).subscribe(res => {
+      this._peliculasService.getMovie(this.peliId).subscribe(res => {
         console.log(res);
         this.pelicula = res;
         //gender reduce to only 3 tags for more matchs to fill similares array
@@ -49,7 +37,6 @@ export class DetallePeliculaComponent implements OnInit {
             this.similares = res;
           });
       });
-
     });
   }
 }
