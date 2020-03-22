@@ -27,8 +27,8 @@ export class PeliculasService {
     let url = `${apiUrl}/search/movie?query=${terminoBusqueda}&sort_by=popularity.desc&api_key=${apiKey}&language=es&callback=JSONP_CALLBACK`;
     return this.http.jsonp(url, "JSONP_CALLBACK").pipe(
       map(res => {
-        this.resultadosBusqueda = res["results"];
-        return res;
+        return this.resultadosBusqueda = res["results"].filter( item => item.poster_path !==null);
+
       })
     );
   }
