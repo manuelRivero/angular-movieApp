@@ -16,6 +16,10 @@ import { PelisImgPipe } from './pipe/pelis-img.pipe';
 import { GaleriaComponent } from './components/galeria/galeria.component';
 import { DetallePeliculaComponent } from './components/detalle-pelicula/detalle-pelicula.component';
 import { SimilaresComponent } from './components/similares/similares.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+import { CategoryComponent } from './components/category/category.component';
+
+
 
 @NgModule({
   declarations: [
@@ -26,7 +30,9 @@ import { SimilaresComponent } from './components/similares/similares.component';
     PelisImgPipe,
     GaleriaComponent,
     DetallePeliculaComponent,
-    SimilaresComponent
+    SimilaresComponent,
+    CarouselComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
