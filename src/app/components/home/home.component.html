@@ -1,30 +1,8 @@
-<div *ngIf="releases && populars && kidsPopulars; else spinner" class="fade-in">
-  <div id="carouselExampleSlidesOnly" class="carousel slide imagenes" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active" [routerLink]="['/detalle', kidsPopulars.results[0].id]" routerLinkActive="router-link-active" >
-            <img [src]="kidsPopulars.results[0] | pelisImg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block whiteText-background">
-              <h1>{{kidsPopulars.results[0].title}}</h1>
-              <p>{{kidsPopulars.results[0].overview | slice:0:250..}}</p>
-            </div>      </div>
-        <div class="carousel-item pointer" [routerLink]="['/detalle', populars.results[0].id ]" routerLinkActive="router-link-active" >
-            <img [src]="populars.results[0] | pelisImg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block whiteText-background" >
-              <h1>{{populars.results[0].title}}</h1>
-              <p>{{populars.results[0].overview | slice:0:250..}}</p>
-            </div>      </div>
-        <div class="carousel-item pointer" [routerLink]="['/detalle', releases.results[0].id]" routerLinkActive="router-link-active" >
-          <img [src]="releases.results[0] | pelisImg" class="d-block w-100 pointer" alt="...">
-          <div class="carousel-caption d-none d-md-block whiteText-background">
-            <h1>{{releases.results[0].title}}</h1>
-            <p>{{releases.results[0].overview | slice:0:250..}}</p>
-          </div>
-        </div>
-      </div>
-  </div>
-  <app-galeria [movies]="releases" title="Estrenos" ></app-galeria> 
-  <app-galeria [movies]="populars" title="Populares" ></app-galeria> 
-  <app-galeria [movies]="kidsPopulars" title="Estrenos para niños" ></app-galeria> 
+<div *ngIf="releases && populars  else spinner" class="fade-in">
+
+  <app-carousel [peliculas]="populars.results" ></app-carousel>
+  <app-galeria [movies]="populars" title="Populares" ></app-galeria>
+
 </div>
 
 

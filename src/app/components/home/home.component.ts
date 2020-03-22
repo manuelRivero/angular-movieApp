@@ -9,7 +9,6 @@ import { PeliculasService } from 'src/app/services/peliculas.service';
 export class HomeComponent implements OnInit {
   releases;
   populars;
-  kidsPopulars;
 
   constructor(public _peliculasService: PeliculasService) { }
 
@@ -18,9 +17,6 @@ export class HomeComponent implements OnInit {
       console.log(res);this.releases=res} )
     this._peliculasService.getPopulars().subscribe( res => {
       console.log(res);this.populars=res} )
-    this._peliculasService.getKidsPopulars().subscribe( res =>  {
-      console.log(res);
-      this.kidsPopulars=res} )
 
 
   }
