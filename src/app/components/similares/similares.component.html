@@ -6,7 +6,9 @@
 <div class="overflow-h shadow-sm p-1" >
   <div class="similares-carousel" (mouseover)="activeSlider=false" (mouseleave)="activeSlider=true">
     <div class="similares-carousel-img " *ngFor="let item of similares; let i = index" [ngStyle]="{'left':(i*150)-(150)+'px'}" >
-      <img [src]="item| pelisImg:'backdrop'" class="" />
+      <a [routerLink]="['/detalle', item.id]" >
+        <img [src]="item| pelisImg:'backdrop'" class="" />
+      </a>
     </div>
   </div>
 </div>
