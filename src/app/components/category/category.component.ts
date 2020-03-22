@@ -9,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
   categoria:string;
+  avaiableCategories:any[]=[];
   peliculas:any[]=[]
   constructor(private route:ActivatedRoute, private _peliculasService: PeliculasService) { }
 
   ngOnInit() {
+    this._peliculasService.getavaiblegenres().subscribe( res =>{
+      this.avaiableCategories = res['genres']
+    })
     this.route.params.subscribe( paramas => {
       this.categoria = paramas.categoria;
       this._peliculasService.getCategory(this.categoria).subscribe( res => {
